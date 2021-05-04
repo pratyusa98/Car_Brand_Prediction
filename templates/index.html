@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Car Brand Classifier</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style type="text/css">
+
+  </style>
+</head>
+<body style="padding-top: 5rem;">
+
+  <!--Nav Bar -->
+
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#">Car_Brand_classified</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+
+    </nav>
+
+
+<!-- Nav End-->
+ <div class="text-center" style="margin: 0;padding: 1px">
+     <img id="brand" src="static/1.png" height="150px"><br>
+
+       <span class="text-muted" style=" color:white;"><a href="https://github.com/pratyusa98" target="_blank">
+           © By Pratyusa Dwibedy 2021 </a> </span> <hr>
+    </div>
+
+  
+<div class="container">
+
+  <div class="row">
+  
+    <div class="col-sm-6">
+       <form action="/predict" method="post" enctype="multipart/form-data">
+
+             <div class="form-group">
+         <img id="blah" src="static/logo.png" alt="your image" /><br><br>
+             <input type="file" class="form-control-file" onchange="readURL(this);" name="image" id="exampleFormControlFile1" required>
+            
+            </div>
+            <input type="submit" class="btn btn-success" value="Predict">
+
+
+          </form>
+    </div><br>
+
+
+    <div class="col-sm-6" style="margin-bottom: 80px">
+        
+             {% if user_image %}
+          <div class="results">
+
+        <center> <div class="results container-fluid w-100">
+      <img src="{{ user_image }}" alt="User Image" class="img-fluid" style="width: 224px;height: 224px;text-align: center;"></center>   
+        <h3>Results : {{predict}}</h3> <hr>
+    </div>
+    {% else %}
+   <center> <img id="blah" src="static/logo.png" alt="your image" /></center>
+
+    {% endif %}
+
+
+
+          </div>
+
+        
+          
+    </div>
+  </div>
+</div>
+
+
+
+    <script type="text/javascript">
+         function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+</script>
+
+
+
+</body>
+</html>

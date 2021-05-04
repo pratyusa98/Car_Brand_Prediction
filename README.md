@@ -4,4 +4,4 @@ Car_Brand_Prediction Using Mobilenet
 ![ML](img/1.png)
 
 My Website
-![ML](img/2.png)
+![ML](img/2.PNG)
